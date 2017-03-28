@@ -3,6 +3,11 @@ import requests
 from BeautifulSoup import BeautifulSoup
 
 url = 'https://columbian.gwu.edu/2015-2016'
+url2 = 'https://columbian.gwu.edu/2014-2015'
+url3 = 'https://columbian.gwu.edu/2013-2014'
+url4 = 'https://columbian.gwu.edu/2012-2013'
+url5 = 'https://columbian.gwu.edu/2011-2012'
+url6 = 'https://columbian.gwu.edu/2010-2011'
 response = requests.get(url)
 html = response.content
 
@@ -23,5 +28,5 @@ for row in table.findAll('tr')[1:]:
 
 outfile = open("college.csv", "wb")
 writer = csv.writer(outfile)
-writer.writerow(["dept", "faculty", "sponsor", "title"])
+writer.writerow(["year", "dept", "faculty", "sponsor", "title"])
 writer.writerows(list_of_rows)
